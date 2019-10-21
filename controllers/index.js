@@ -1,10 +1,12 @@
 
-const categorycontroller = require('./categorycontroller')
+
+const itemController = require('./itemController')
+const recipeController = require('./recipeController')
 
 
 
 module.exports={
+    itemController,
 
-    categorycontroller
-
+    recipeController
 }   

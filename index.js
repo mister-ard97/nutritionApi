@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
-const port =  1998
+const port =  2002
 const app = express();
 
 // PAKAI FOREIGN KEY UPDATE AND DELETE CONSTRAINTS
@@ -19,9 +19,11 @@ app.get('/', (req,res)=>{
 })
 
 
-const { categoryRouter } = require('./routers')
+const { itemRouter, recipeRouter } = require('./routers')
 
-app.use('/category', categoryRouter)
+app.use('/item', itemRouter)
+
+app.use('/recipe', recipeRouter)
 
 
 

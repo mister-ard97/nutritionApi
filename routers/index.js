@@ -1,6 +1,9 @@
-const categoryRouter = require('./categoryRouter')
+
+const itemRouter = require('./itemRouter')
+const recipeRouter = require('./recipeRouter')
 
 
 module.exports={
-    categoryRouter
+    itemRouter,
+    recipeRouter
 }
