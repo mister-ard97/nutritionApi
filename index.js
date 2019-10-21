@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
-const port =  2002
+const port =  1998
 const app = express();
 
 // PAKAI FOREIGN KEY UPDATE AND DELETE CONSTRAINTS
