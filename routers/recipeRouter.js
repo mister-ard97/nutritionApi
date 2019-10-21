@@ -5,9 +5,13 @@ const router = express.Router()
 router.get('/getrecipe', recipeController.getRecipeData)
 router.post('/postrecipe', recipeController.postRecipeData)
 router.put('/editrecipe', recipeController.editRecipeData)
-router.put('/editrecipedetail', recipeController.editRecipeDetail)
-router.post('/deleterecipe', recipeController.deleteRecipeData)
+router.put('/editrecipedetail/:id', recipeController.editRecipeDetail);
+router.get('/deleterecipedetail/:id', recipeController.deleteRecipeDetail)
+router.get('/deleterecipe/:id', recipeController.deleteRecipeData)
 router.get('/searchrecipe/:name', recipeController.searchRecipeName);
+router.get('/getrecipedetail/:id', recipeController.getDetailRecipe);
+
+router.post('/editRecipeDetailItem/:id', recipeController.editRecipeDetailItem)
 
 
 module.exports = router
