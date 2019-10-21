@@ -32,6 +32,18 @@ module.exports = {
             return res.status(200).send(result)
         })  
     },
+    editRecipeDetail : (req,res) =>{
+        console.log(req.body)
+        console.log(req.params.id)
+        var sql = `Update recipe_detail set ? where id = ${req.params.id}`
+        db.query(sql,req.body, (err,result)=>{
+            if(err) return res.status(500).send({ message: "Error :(", error: err})
+            
+
+            console.log("Update recipe berhasil")
+            return res.status(200).send(result)
+        })  
+    },
     deleteRecipeData : (req,res) =>{
         console.log(req.params.id)
         var sql = `delete from recipes where id = ${req.params.id}`

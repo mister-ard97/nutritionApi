@@ -4,7 +4,7 @@ var db = mysql.createConnection({
     host : 'localhost',
     user : 'enverd',
     password : '123123123',
-    database : 'moviepurwadhika', // custom
+    database : 'nutritiondb', // custom
     port : 3306
 })
 
