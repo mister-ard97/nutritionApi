@@ -66,6 +66,16 @@ module.exports = {
             return res.status(200).send(result)
         })  
     },
+    deleteRecipeDetail : (req, res) => {
+        let sql = `delete from recipe_detail where id = ${req.params.id}`
+        db.query(sql, (err,result)=>{
+            if(err) return res.status(500).send({ message: "Error :(", error: err})
+            
+
+            console.log("Update recipe berhasil")
+            return res.status(200).send(result)
+        })  
+    },
     searchRecipeName : (req,res)=>{
         console.log(req.params.name)
         var sql = `select * from recipes where recipeName like '%${req.params.name}%'`
@@ -88,5 +98,38 @@ module.exports = {
             console.log("Berhasil delete recipe")
             return res.status(200).send(result)
         })  
+    },
+
+    getDetailRecipe: (req, res) => {
+        console.log(req.params.id);
+        let sql = `select 
+        rd.id, 
+        rd.gram, 
+        i.material,
+        i.calorie,
+        i.protein,
+        i.totalFat,
+        i.saturated,
+        i.mufa,
+        i.pufa,
+        i.carbohydrat,
+        i.fiber,
+        i.price,
+        i.source_url
+        from recipe_detail as rd join items as i on i.id = rd.itemId where rd.recipeId = ${req.params.id}`;
+        db.query(sql, (err, result) => {
+            if(err) return res.status(500).send({ message: "Error :(", error: err})
+
+            return res.status(200).send(result)
+        })
+    },
+
+    editRecipeDetailItem: (req, res) => {
+        let sql = `update recipe_detail set gram = ${req.body.data} where id = ${req.params.id}`
+        db.query(sql, (err, result) => {
+            if(err) return res.status(500).send({ message: "Error :(", error: err})
+
+            return res.status(200).send(result)
+        })
     }
 }
