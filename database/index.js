@@ -1,27 +1,26 @@
-var mysql = require('mysql')
+var mysql = require("mysql");
+
+var db = mysql.createConnection({
+  host: "127.0.0.1",
+  user: "saitama",
+  password: "Pl163178149",
+  database: "nutritiondb", // custom
+  port: 3306,
+});
 
 // var db = mysql.createConnection({
 //     host : 'localhost',
-//     user : 'reza_db',
-//     password : 'reza_db10071997',
+//     user : 'enverd',
+//     password : '123123123',
 //     database : 'nutritiondb', // custom
 //     port : 3306
 // })
 
-var db = mysql.createConnection({
-    host : 'localhost',
-    user : 'enverd',
-    password : '123123123',
-    database : 'nutritiondb', // custom
-    port : 3306
-})
+db.connect(function (err) {
+  console.log("Masuk db");
+  if (err) throw err;
 
-db.connect(function(err) {
-    console.log("Masuk db")
-    if (err) throw err;
+  console.log("Connected!");
+});
 
-    console.log("Connected!");
-  });
-
-
-module.exports = db
+module.exports = db;
