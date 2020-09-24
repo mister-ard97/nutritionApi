@@ -5,7 +5,6 @@ var db = mysql.createConnection({
   user: "saitama",
   password: "Pl163178149",
   database: "nutritiondb", // custom
-  port: 3306,
 });
 
 // var db = mysql.createConnection({
